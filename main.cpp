@@ -65,12 +65,7 @@ int count(const char* str1, const char* str2) {
 
     while ((temp = strstr(temp, str2)) != nullptr) {
         cnt++;
-        
-        if (len2 > 1){
-            temp++;  
-        } else {
-            temp += len2;
-        }
+        temp++;
     }
 
     return cnt;
@@ -110,6 +105,10 @@ void test_count() {
     const char* str15 = "abababab";
     const char* str16 = "a";
     assert(count(str15, str16) == 4);
+
+    const char* str17 = " ";
+    const char* str18 = " ";
+    assert(count(str17, str18) == 1);
 
     std::cout << "Tests for the  count  function passed successfully" << '\n';
 }
