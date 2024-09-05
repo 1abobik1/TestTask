@@ -15,15 +15,3 @@ int Switch::getNumPort() const
 void Switch::initialize() const {
     std::cout << getFullName() << ": Up " << getNumPort() << " ports\n";
 }
-
-void CiscoSwitch::initialize() const {
-    std::cout << getFullName() << ": Up " << getNumPort() << " ports\n";
-}
-
-void HuaweiSwitch::initialize() const {
-    std::cout << getFullName() << ": Up " << getNumPort() << " ports\n";
-}
-
-void JuniperSwitch::initialize() const {
-    std::cout << getFullName() << ": Up " << getNumPort() << " ports\n";
-}

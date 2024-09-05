@@ -12,30 +12,23 @@ public:
 
     std::string getFullName() const;
     int getNumPort() const;
-    virtual void initialize() const;
+    void initialize() const;
 };
-
 
 class CiscoSwitch : public Switch {
 public:
     CiscoSwitch(const std::string& name, int number_of_ports)
         : Switch(name, "Cisco", number_of_ports) {}
-
-    void initialize() const override;
 };
 
 class HuaweiSwitch : public Switch {
 public:
     HuaweiSwitch(const std::string& name, int number_of_ports)
         : Switch(name, "Huawei", number_of_ports) {}
-
-    void initialize() const override;
 };
 
 class JuniperSwitch : public Switch {
 public:
     JuniperSwitch(const std::string& name, int number_of_ports)
         : Switch(name, "Juniper", number_of_ports) {}
-
-    void initialize() const override;
 };

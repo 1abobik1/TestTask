@@ -54,8 +54,7 @@ void test_cmp() {
     std::cout << "Tests for the  cmp  function passed successfully" << '\n';
 }
 
-
-int count(const char* str1,const char* str2) {
+int count(const char* str1, const char* str2) {
     if (str1 == nullptr || str2 == nullptr || strlen(str2) == 0) {
         return 0;
     }
@@ -65,12 +64,18 @@ int count(const char* str1,const char* str2) {
     size_t len2 = strlen(str2);
 
     while ((temp = strstr(temp, str2)) != nullptr) {
-        cnt++;            
-        temp += len2 - 1;         
+        cnt++;
+        
+        if (len2 > 1){
+            temp++;  
+        } else {
+            temp += len2;
+        }
     }
 
     return cnt;
 }
+
 
 
 void test_count() {
@@ -102,6 +107,10 @@ void test_count() {
     const char* str14 = "aba";
     assert(count(str13, str14) == 2);
 
+    const char* str15 = "abababab";
+    const char* str16 = "a";
+    assert(count(str15, str16) == 4);
+
     std::cout << "Tests for the  count  function passed successfully" << '\n';
 }
 
@@ -125,7 +134,6 @@ void test_Switch() {
     std::cout.rdbuf(oss.rdbuf());
     
     cisco.initialize();
-    std::cout.rdbuf(original_cout_streambuf);
     assert(oss.str() == "Cisco:sw1: Up 48 ports\n");
 
     oss.str(""); 
@@ -133,7 +141,6 @@ void test_Switch() {
 
     std::cout.rdbuf(oss.rdbuf());
     huawei.initialize();
-    std::cout.rdbuf(original_cout_streambuf);
     assert(oss.str() == "Huawei:sw2: Up 24 ports\n");
 
     oss.str("");
